@@ -1,0 +1,6 @@
+{
+  "ext": "*",
+  "ignore": ["go.mod", "go.sum"],
+  "exec": "go run ./cmd/ || exit 1",
+  "signal": "SIGTERM"
+}

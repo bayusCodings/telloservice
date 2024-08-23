@@ -1,0 +1,26 @@
+version: '3'
+services:
+  telloservice:
+    container_name: telloservice
+    build:
+      context: .
+      dockerfile: local/Dockerfile
+    restart: always
+    environment:
+      APP_PORT: 8080
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_DATABASE: telloservice
+      DB_USER: root
+    env_file:
+      - .env
+    ports:
+      - 50055:8080
+    networks:
+      - default
+    volumes:
+      - ./:/usr/src/app
+
+networks:
+  default:
+    external: true
