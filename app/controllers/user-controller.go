@@ -102,8 +102,7 @@ func (uc *UserController) GetUserById(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
 	idStr := params["id"]
 
-	// Convert the ID from string to uint
-	id, err := strconv.ParseUint(idStr, 10, 32)
+	id, err := strconv.Atoi(idStr)
 	if err != nil {
 		exception := exceptions.NewBadRequestException("Invalid user ID")
 		exception.Respond(w)
